@@ -57,3 +57,18 @@ function removeRow() {
 
     amountofRows--;
 }
+
+function removeColumn() {
+    //grab the main grid
+    let mainGrid = document.getElementById("main-grid");
+    let allRows = document.querySelectorAll("tr");
+    let rowCounter = 0;
+    for(let i = 0; i < amountofRows; i++) {
+        allRows[rowCounter].removeChild(allRows[rowCounter].lastChild);
+        rowCounter++;
+       
+    }
+    amountofColumns--;
+}
+
+
