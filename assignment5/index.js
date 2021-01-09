@@ -71,6 +71,62 @@ function removeColumn() {
     amountofColumns--;
 }
 
+let currentColor = `${document.getElementById("color-select").value}`
+
+// sets up new cell: sets event handlers and sets class to "uncolored"
+function initializeCell(cell) {
+    // change color on click
+    cell.addEventListener("click", changeColor);
+    // give cell as class called "uncolored"
+    cell.classList.add("uncolored");
+
+   
+
+    // on mousedown, start coloring
+    cell.addEventListener("mousedown", e => {
+        coloring = true
+    });
+
+    // if coloring, set background color of cell to the currentColor and remove the uncolored class
+    cell.addEventListener("mousemove", e => {
+        if (coloring) {
+            cell.style.backgroundColor = currentColor;
+            cell.classList.remove("uncolored");
+        }
+    });
+
+    // if coloring, on mouseup, set coloring to false
+    cell.addEventListener("mouseup", e => {
+        if (coloring) {
+            coloring = false;
+        }
+    })
+}
+
+
+// add event handlers to the 2 starting cells
+let cells = document.getElementsByTagName("td");
+let cellList = [...cells];
+
+
+for (let i=0; i < cellList.length; i++) {
+    const cell = cellList[i];
+    initializeCell(cell)
+}
+
+// changes color of a cell
+function changeColor() {
+    this.style.backgroundColor = currentColor;
+
+    // remove class "uncolored" because cell is now colored
+    this.classList.remove("uncolored")
+}
+
+// sets currentColor based on the color selected from dropdown
+function setCurrentColor(color) {
+    currentColor = color;
+}
+
 function setUncolored() {
     // get all cells in the table
     let allCells = document.getElementsByTagName("td");
