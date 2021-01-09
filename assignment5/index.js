@@ -24,3 +24,27 @@ function addRow() {
     mainGrid.appendChild(newRow);
     amountofRows++;
 }
+
+function addColumn() {
+    //grab the main grid
+    let mainGrid = document.getElementById("main-grid");
+    
+    let allRows = document.querySelectorAll("tr");
+
+    let rowCounter = 0;
+
+    for(let i = 0; i < amountofRows; i++) {
+        let cell = document.createElement("td");
+        
+        initializeCell(cell)
+        
+        allRows[rowCounter].appendChild(cell);
+
+        rowCounter++;
+        // newRow.appendChild(cell);
+    }
+
+    // mainGrid.appendChild(newRow);
+    amountofColumns++;
+
+}
