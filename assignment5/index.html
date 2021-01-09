@@ -14,9 +14,32 @@
 </head>
 
 <body>
-
-
+    <button onclick="addRow()">Add Row</button>
+    <button onclick="addColumn()">Add Column</button>
+    <button onclick="removeRow()">Remove Row</button>
+    <button onclick="removeColumn()">Remove Column</button>
+    <form>
+        <p>
+            <label>Select list</label>
+            <select id="color-select" onchange="setCurrentColor(this.value)"> 
+                <option value="#87bac9">blue</option>
+                <option value="#db5881">pink</option>
+                <option value="#d4e094">green</option>
+                <option value="#f7e277">yellow</option>
+            </select>
+        </p>
+    </form>
+    <button onclick="setUncolored()">Fill uncolored</button>
+    <button onclick="setAllCurrent()">Fill all</button>
+    <button onclick="clearAll()">Clear All</button>
+    <table id="main-grid">
+        <tr>
+            <td></td>
+            <td></td>
+        </tr>
+    </table>
     
+
     <!-- Option 1: Bootstrap Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
