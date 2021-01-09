@@ -41,10 +41,19 @@ function addColumn() {
         allRows[rowCounter].appendChild(cell);
 
         rowCounter++;
-        // newRow.appendChild(cell);
+        
     }
 
-    // mainGrid.appendChild(newRow);
+    
     amountofColumns++;
 
+}
+
+function removeRow() {
+    //grab the main grid
+    let mainGrid = document.getElementById("main-grid");
+    
+    mainGrid.deleteRow(amountofRows-1);
+
+    amountofRows--;
 }
