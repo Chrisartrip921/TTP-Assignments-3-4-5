@@ -71,4 +71,20 @@ function removeColumn() {
     amountofColumns--;
 }
 
+function setUncolored() {
+    // get all cells in the table
+    let allCells = document.getElementsByTagName("td");
+    let allCellsList = [...cells];
+
+    // filter out the cells that are colored
+    const uncolored = allCellsList.filter(cell => {
+        return cell.classList.contains("uncolored");
+    });
+
+    // change the background color of each uncolored cell and remove "uncolored" class
+    uncolored.forEach(cell => {
+        cell.style.backgroundColor = currentColor;
+        cell.classList.remove("uncolored");
+    })
+}
 
